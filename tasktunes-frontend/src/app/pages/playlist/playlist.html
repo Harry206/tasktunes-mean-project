@@ -1,0 +1,36 @@
+<div class="container">
+  <!-- Header -->
+  <h1>Songs for "{{ task }}" - "{{ mood }}" 🎶</h1>
+
+  <!-- Song List -->
+  <div class="song-list">
+    <div 
+      class="song-card" 
+      *ngFor="let song of songs; let i = index" 
+      [style.--i]="i"
+    >
+      <!-- Song Info -->
+      <div class="song-info">
+        <p class="song-title">{{ song.title }}</p>
+        <p class="song-artist">{{ song.artist }}</p>
+      </div>
+
+      <!-- Actions -->
+      <div class="song-actions">
+        <a 
+          [href]="song.link" 
+          class="listen-btn" 
+          target="_blank"
+        >Listen</a>
+
+        <button 
+          class="shuffle-btn" 
+          (click)="shuffleSong()"
+        >Shuffle</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <button class="back-btn" (click)="goBack()">Back</button>
+</div>

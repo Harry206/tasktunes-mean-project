@@ -1,0 +1,131 @@
+/* --- Container & Background --- */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  animation: slideIn 1s ease-out;
+
+  /* Keep original gradient theme */
+  background: linear-gradient(135deg, #8EC5FC, #E0C3FC);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite, slideIn 1s ease-out;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+/* --- Header --- */
+h1 {
+  font-size: 2.3rem;
+  color: #1b1b1b;
+  margin-bottom: 2rem;
+  text-align: center;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  animation: floatText 3s ease-in-out infinite;
+}
+
+/* --- Mood Buttons --- */
+.mood-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+button {
+  background: rgba(255, 255, 255, 0.35);
+  color: #1b1b1b;
+  border: none;
+  border-radius: 20px;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  animation: fadeInUp 0.6s forwards, floatBtn 3s ease-in-out infinite;
+}
+
+/* Delayed entry for each mood button */
+button:nth-child(1) { animation-delay: 0.2s; }
+button:nth-child(2) { animation-delay: 0.4s; }
+button:nth-child(3) { animation-delay: 0.6s; }
+button:nth-child(4) { animation-delay: 0.8s; }
+button:nth-child(5) { animation-delay: 1s; }
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* --- Back button --- */
+.back-btn {
+  margin-top: 2rem;
+  padding: 0.6rem 1.5rem;
+  border-radius: 20px;
+  border: none;
+  background: rgba(255, 255, 255, 0.35);
+  color: #1b1b1b;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+}
+
+.back-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+/* --- Animations --- */
+@keyframes slideIn {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Gradient animation */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Floating buttons */
+@keyframes floatBtn {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Floating header text */
+@keyframes floatText {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  .mood-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Pick Your Mood for "{{ task }}" 🎶</h1>
+
+  <div class="mood-buttons">
+    <button *ngFor="let mood of moods; let i = index" [style.animationDelay]="(0.2*i)+'s'" 
+            (click)="goToPlaylist(mood)">
+      {{ mood }}
+    </button>
+  </div>
+
+  <button class="back-btn" (click)="goBack()">← Back</button>
+</div>

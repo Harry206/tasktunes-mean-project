@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="overlay"></div>
+  <h1>Pick Your Task</h1>
+  <div class="task-buttons">
+    <button *ngFor="let task of tasks" (click)="selectTask(task)">
+      {{ task }}
+    </button>
+  </div>
+</div>

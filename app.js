@@ -12,12 +12,12 @@ mongoose.connect('mongodb+srv://tasktunesUser:tasktunesdatabasepassword91@tasktu
 
 
 // Import your models
-const Playlist = require('./models/playlist'); // your playlist schema
+const Playlist = require('./models/Playlist'); // your playlist schema
 
 // --- Routes ---
 
 app.get('/', (req, res) => {
-  res.send('✅ TaskTunes backend is running!');
+  res.send('TaskTunes backend is running!');
 });
 
 // GET all tasks
@@ -61,4 +61,4 @@ app.get('/api/playlists/:task/:mood', async (req, res) => {
 
 // Start server
 const PORT = 3000;
-app.listen(PORT, () => console.log(`✅ Server running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
